@@ -1,38 +1,40 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+span {
+  padding-bottom: 4px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Input {
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Input-submitted {
+  opacity: 50%;
 }
 
-.App-link {
-  color: #61dafb;
+.Input-message {
+  width: 100%;
+  height: 120px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Output {
+  padding-top: 20px;
+}
+
+.OutputRow {
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.OutputRow-copied {
+  opacity: 50%;
+}
+
+.OutputRow-message {
+  width: 100%;
+  height: 20px;
+}
+
+.OutputRow-copy {
 }
