@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/text-paginator/static/css/main.61c770a3.chunk.css",
+    "main.js": "/text-paginator/static/js/main.004341ba.chunk.js",
+    "main.js.map": "/text-paginator/static/js/main.004341ba.chunk.js.map",
+    "runtime-main.js": "/text-paginator/static/js/runtime-main.558f8f33.js",
+    "runtime-main.js.map": "/text-paginator/static/js/runtime-main.558f8f33.js.map",
+    "static/js/2.b5004a42.chunk.js": "/text-paginator/static/js/2.b5004a42.chunk.js",
+    "static/js/2.b5004a42.chunk.js.map": "/text-paginator/static/js/2.b5004a42.chunk.js.map",
+    "static/js/3.855719f6.chunk.js": "/text-paginator/static/js/3.855719f6.chunk.js",
+    "static/js/3.855719f6.chunk.js.map": "/text-paginator/static/js/3.855719f6.chunk.js.map",
+    "index.html": "/text-paginator/index.html",
+    "service-worker.js": "/text-paginator/service-worker.js",
+    "service-worker.js.map": "/text-paginator/service-worker.js.map",
+    "static/css/main.61c770a3.chunk.css.map": "/text-paginator/static/css/main.61c770a3.chunk.css.map",
+    "static/js/2.b5004a42.chunk.js.LICENSE.txt": "/text-paginator/static/js/2.b5004a42.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.558f8f33.js",
+    "static/js/2.b5004a42.chunk.js",
+    "static/css/main.61c770a3.chunk.css",
+    "static/js/main.004341ba.chunk.js"
+  ]
+}
