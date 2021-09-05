@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Text Paginator",
+  "name": "Text Paginator",
   "icons": [
     {
       "src": "favicon.ico",

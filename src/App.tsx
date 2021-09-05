@@ -121,7 +121,7 @@ class App extends React.Component<{}, AppState> {
 
     const paginatedMessages = paginateText(this.state.message)
     this.setState({
-      submitClicked: true,
+      submitClicked: this.state.message.length > 0,
       paginatedMessages
     })
   }
@@ -130,7 +130,7 @@ class App extends React.Component<{}, AppState> {
     return(
       <div className="App">
         <div className={`Input ${this.state.submitClicked ? "Input-submitted" : ''}`}>
-          <span>Step 1: Enter text to be paginated:</span>
+          <span className="Input-header">Step 1: Enter text to be paginated:</span>
           <form onSubmit={this.handleSubmit}>
             <div>
               <textarea
@@ -138,7 +138,10 @@ class App extends React.Component<{}, AppState> {
                 onChange={this.handleChange}
                 onFocus={this.handleChange}
                 className="Input-message"
-                maxLength={3000}
+                autoComplete="off"
+                autoFocus={true}
+                placeholder="The message typed in here will be split into 160-character parts"
+                spellCheck="false"
               ></textarea>
             </div>
 
@@ -149,7 +152,7 @@ class App extends React.Component<{}, AppState> {
         {
           this.state.submitClicked
             ? <div className="Output">
-              <span>Step 2: Copy and send each part:</span>
+              <span className="Output-header">Step 2: Copy and send each part:</span>
 
               {
                 this.state.paginatedMessages.map((m, i) =>
