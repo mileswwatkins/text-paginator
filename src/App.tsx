@@ -159,7 +159,7 @@ class App extends React.Component<{}, AppState> {
                 className="Input-message"
                 autoComplete="off"
                 autoFocus={true}
-                placeholder="The message typed in here will be split into 160-character parts"
+                placeholder="The message typed in here will be split into parts short enough for an SMS"
                 spellCheck="false"
               ></textarea>
             </div>
