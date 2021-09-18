@@ -2,6 +2,17 @@ import React from 'react';
 import './App.css';
 
 /**
+ * Get the byte length of a string, which can be greater in
+ * some cases than the `.length` property of a JavaScript sting.
+ * Some text messaging systems, like Garmin InReach, count
+ * bytes to check the maximum length of a message, so use this
+ * more conservative measure.
+ * https://stackoverflow.com/questions/25994001/how-to-calculate-byte-length-containing-utf8-characters-using-javascript
+ */
+const getByteLength = (str: string): number =>
+  new Blob([str]).size
+
+/**
  * Convert a message into chunks that are small enough to send
  * (ie, chunks that are small enough to fit within `maxLength`).
  * If there are multiple chunks, indicate the number of the
@@ -24,14 +35,14 @@ const paginateText = (message: string, maxLength: number = 160): string[] => {
   const words = message.split(/\s+/)
 
   let messages: string[] = []
-  if (message.length <= maxLength) {
+  if (getByteLength(message) <= maxLength) {
     messages = [words.join(' ')]
   } else {
     let currentMessage = '[1/XX]'
     words
       .filter(w => w.length > 0)
       .forEach(word => {
-        if (currentMessage.length + ' '.length + word.length > maxLength) {
+        if (getByteLength(currentMessage) + ' '.length + getByteLength(word) > maxLength) {
           messages.push(currentMessage)
           currentMessage = `[${messages.length + 1}/XX]`
         }
@@ -119,7 +130,15 @@ class App extends React.Component<{}, AppState> {
   handleSubmit(e: React.FormEvent) {
     e.preventDefault()
 
-    const paginatedMessages = paginateText(this.state.message)
+    // Since this site is built primarily for Garmin InReach
+    // messaging, use 12 fewer characters than the usual 160,
+    // since Gamin sometimes reserves 12 characters at the end
+    // of each message
+    const garminMessageMaxLength = 160 - 12
+    const paginatedMessages = paginateText(
+      this.state.message,
+      garminMessageMaxLength
+    )
     this.setState({
       submitClicked: this.state.message.length > 0,
       paginatedMessages
